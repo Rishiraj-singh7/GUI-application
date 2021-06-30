@@ -4,6 +4,11 @@ from tkinter.constants import ANCHOR, BOTH
 HEIGHT = 500
 WIDTH = 600
 
+def test_function():
+    print("This is the entry:", entry)
+
+#138dd139ed444a6fc62fa8610d1a22ea
+
 root = tk.Tk()
 
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
@@ -19,7 +24,7 @@ frame.place(relx=0.5, rely=0.1, relwidht=0.75, relheight=0.1, anchor='n')
 entry = tk.Entry(frame, font=40)
 entry.place( relwidht=0.65, relheight=1)
 
-button = tk.Button(frame, text="Test button",font=40)
+button = tk.Button(frame, text="Get Weather", font=40, command=lambda: test_function(entry.get))
 button.place(relx=0.7, relwidht=0.3, relheight=1)
 #button.grid(row=0, column=0)
 #button.pack(side='left', fill='both') aotherway
