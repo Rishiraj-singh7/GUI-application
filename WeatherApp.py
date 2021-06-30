@@ -1,26 +1,34 @@
 import tkinter as tk
-from tkinter.constants import BOTH
+from tkinter.constants import ANCHOR, BOTH
 
-HEIGHT = 700
-WIDTH = 800
+HEIGHT = 500
+WIDTH = 600
 
 root = tk.Tk()
 
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
-canvas.pack
+canvas.pack()
 
-frame = tk.frame(root, bg='#80c1ff')
-frame.place(relx=0.1, rely=0.1, relwidht=0.8, relheight=0.5)
+background_image = tk.PhotoImage(file='landscape.png')
+background_image = tk.Lable(root, image=background_image)
+background_image.pack(relwidth=1, relheight=1)
 
-button = tk.Button(frame, text="Test button", bg = 'gray')
-button.place(relx=0, rely=0, relwidht=0.25, relheight=0.25)
+frame = tk.frame(root, bg='#80c1ff',bd=5)
+frame.place(relx=0.5, rely=0.1, relwidht=0.75, relheight=0.1, anchor='n')
+
+entry = tk.Entry(frame, font=40)
+entry.place( relwidht=0.65, relheight=1)
+
+button = tk.Button(frame, text="Test button",font=40)
+button.place(relx=0.7, relwidht=0.3, relheight=1)
 #button.grid(row=0, column=0)
 #button.pack(side='left', fill='both') aotherway
 
-label = tk.Label(frame, text="This is a label", bg='yellow')
-label.place(relx=0.3, rely=0, relwidht=0.45, relheight=0.25)
+lower_frame = tk.Frame(root,bg='#80c1ff',bd=10 )
+lower_frame.place(relx=0.5, rely=0.25, relwidht=0.75, relheight=0.6 anchor= 'n')
 
-entry = tk.Entry(frame, bg='green')
-entry.place(relx=0.8, rely=0.1, relwidht=0.2, relheight=0.25)
+label = tk.Label(lower_frame)
+label.place( relwidht=1, relheight=1)
+
 root.mainloop()
 
