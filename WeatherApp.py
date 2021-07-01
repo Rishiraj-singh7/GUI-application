@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter.constants import ANCHOR, BOTH
+from tkinter import font
+
 import requests
 
 HEIGHT = 500
@@ -45,7 +46,7 @@ background_image.pack(relwidth=1, relheight=1)
 frame = tk.frame(root, bg='#80c1ff',bd=5)
 frame.place(relx=0.5, rely=0.1, relwidht=0.75, relheight=0.1, anchor='n')
 
-entry = tk.Entry(frame, font=40)
+entry = tk.Entry(frame, ('courier', 15))
 entry.place( relwidht=0.65, relheight=1)
 
 button = tk.Button(frame, text="Get Weather", font=40, command=lambda: get_weather(entry.get))
@@ -56,7 +57,7 @@ button.place(relx=0.7, relwidht=0.3, relheight=1)
 lower_frame = tk.Frame(root,bg='#80c1ff',bd=10 )
 lower_frame.place(relx=0.5, rely=0.25, relwidht=0.75, relheight=0.6, anchor= 'n')
 
-label = tk.Label(lower_frame)
+label = tk.Label(lower_frame, font=('courier', 15), anchor= 'nw', justify='left', bd=4)
 label.place( relwidht=1, relheight=1)
 
 root.mainloop()
