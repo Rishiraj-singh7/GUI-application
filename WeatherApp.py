@@ -10,6 +10,18 @@ def test_function():
 
 #138dd139ed444a6fc62fa8610d1a22ea
 #api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+def format_response(weather):
+    try:
+        name = weather['name']
+        desc = weather['weather'][0]['description']
+        temp = weather['main']['temp']
+        
+        final_str = 'City: %s \nConditions: %s \nTemperature (°F): %s' % (name, desc, temp)
+    except:
+        final_str = 'There was a problem retrieving that information'
+
+    return final_str
+
 
 def get_weather(city):
     weather_key = '138dd139ed444a6fc62fa8610d1a22ea'
@@ -18,10 +30,9 @@ def get_weather(city):
     response = requests.get(url, params=params)
     weather = response.json()
 
-    print(weather['name'])
-    print(weather['weather'][0]['description'])
-    print(weather['main']['temp'])
+    label['text'] = format_response(weather)
 
+    
 root = tk.Tk()
 
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
